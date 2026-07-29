@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Urdu Fake News Detection</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="background">
+
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+</div>
+
+<div class="container">
+<div class="footer">
+
+Powered by DistilBERT • Flask • AI • NLP
+
+</div>
+    <div class="glass">
+
+        <div class="logo">
+
+            🤖
+
+        </div>
+
+        <h1>AI Urdu Fake News Detection</h1>
+
+        <p>
+            Analyze Urdu News using Artificial Intelligence
+        </p>
+
+        <form method="POST">
+
+            <textarea
+            name="news"
+            placeholder="Paste Urdu News Here..."
+            required>{{ news }}</textarea>
+
+            <button type="submit">
+
+                Analyze News
+
+            </button>
+
+        </form>
+
+{% if prediction %}
+
+<div class="result {{ color }}">
+
+<h2>
+
+Prediction
+
+</h2>
+
+<h1>
+
+{{ prediction }}
+
+</h1>
+
+<h3>
+
+Confidence : {{ "%.2f"|format(confidence) }} %
+
+</h3>
+
+<div class="progress">
+
+<div
+class="progress-bar"
+
+style="width:{{confidence}}%;">
+
+</div>
+
+</div>
+
+</div>
+
+{% endif %}
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
